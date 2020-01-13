@@ -137,4 +137,7 @@ object CircleApp {
 - 多态
 - 主构造器、附属构造器
 - override 关键字进行属性方法重写
+- 伴生类和伴生对象是相互的概念。对象或类名() 调用的是 object.apply()，类的实例()   调用的是 class.apply()。最佳实践是在 object.apply()中实例化class
+- case class,不需实例化，可直接使用，多用于模式匹配
+- 可变数组&不可变数组
 
