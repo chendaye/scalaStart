@@ -12,6 +12,8 @@ object AbstractClass {
  * */
 
 abstract class Girls{
+  var name:String
+  var age:Int
   def speak  // 抽象方法
 }
 
@@ -19,4 +21,7 @@ class beautifulGirl extends Girls {
   override def speak: Unit = {
     println(" Girls are beautiful")
   }
+
+  var name = "chen "
+  var age = 18
 }
