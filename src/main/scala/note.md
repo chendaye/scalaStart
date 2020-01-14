@@ -32,101 +32,11 @@ Path to a file from which to load extra properties. If not specified, this will 
 
 在类型后面加一个星号，表示多个类型一样的参数
 
-```scala
-package scalastart
-import org.apache.spark.{SparkConf, SparkContext}
-object FunctionApp {
-  def main(args: Array[String]): Unit = {
-//    println(add(6, 6))
-//    println(three(1, 2))
-//    println(four)
-      sayName("chendaye")
-//      val conf = new SparkConf().setAppName("taobao").setMaster("local[2]")
-//      val sc = new SparkContext(conf)
-
-    // 可以打乱参数的时序
-    val a = distanceTime(100, 10)
-    val b:Float = distanceTime(time = 10, distance = 100)
-    println(a)
-    println(b)
-    println(manyArg(1, 2, 3, 4, 5, 6, 7, 8, 9 ))
-    
-  }
-
-  def add(x:Int, y:Int): Int ={
-    x + y
-  }
-
-  def three(x:Int, y:Int) = x + y
-
-  // 没有入参的函数可以直接写方法名调用,括号是可以省略
-  def  four() = 2 + 2
-
-  // 默认参数
-  def sayName(name:String = "PK") = {
-    println(name)
-  }
-
-  def loadConf(conf:String = "spark.default.conf") = {
-     println(conf)
-  }
-
-  // 命名参数
-  def distanceTime(distance:Float, time:Float):Float = {
-    distance / time
-  }
-
-  // 可变参数：参数个数不定
-  def manyArg(num: Int*) = {
-    var sum  = 0
-    for(elem <- num){
-      sum += elem
-    }
-    sum
-  }
-  
-}
-
-```
 
 
 # 条件表达式
 
 # 循环
-
-```scala
-package scalastart
-
-object CircleApp {
-  def main(args: Array[String]): Unit = {
-    1.to(10)
-    Range(1, 12, 2)
-    circleTest()
-  }
-
-  def circleTest(): Unit ={
-    for(elem <- 1 to 12 if elem % 2 == 0){
-      println(elem)
-    }
-
-    val bigdata = Array("scala", "hadoop", "Hive", "spark")
-
-    for (e <- bigdata){
-      println(e)
-    }
-    bigdata.foreach(tmp => println(tmp))
-
-    var (num, sum) = (1, 100)
-    while (num < 100){
-      sum += num
-      num += 1
-    }
-    println(sum)
-  }
-}
-
-```
-
 
 # 面向对象
 
@@ -140,4 +50,18 @@ object CircleApp {
 - 伴生对象、伴生类：如果有一个类（对象） 与另一个对象（类）同名，那么称彼此为对方的伴生类（伴生对象）。注意定义时相互的。伴生类和伴生对象是相互的概念。对象或类名() 调用的是 object.apply()，类的实例()   调用的是 class.apply()。最佳实践是在 object.apply()中实例化class
 - case class,不需实例化，可直接使用，多用于模式匹配
 - 可变数组&不可变数组
+- Array & List 可重复+有序 & Set 不可重复+无序
+
+
+# 模式匹配
+
+```
+变量 match{
+    case value1 => code1
+    case value2 => code2
+    ......
+    case _ => coden
+}
+```
+
 
